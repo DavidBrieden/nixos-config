@@ -14,8 +14,14 @@
       modules = [ 
         nixos-wsl.nixosModules.default
         ./nixos-wsl/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.users.dave = import ./nixos-wsl/home.nix;
+        }
       ];
     };
+
     nixosConfigurations.nixos-notebook = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ 
@@ -23,7 +29,7 @@
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
-          home-manager.users.dave = import ./home.nix;
+          home-manager.users.dave = import ./nixos-notebook/home.nix;
         }
       ];
     };

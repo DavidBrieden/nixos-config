@@ -1,0 +1,2 @@
+- automating pulling of dotfiles
+- automating pulling of antigen

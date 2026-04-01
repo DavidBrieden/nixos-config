@@ -9,15 +9,22 @@
 
 {
   wsl.enable = true;
-  wsl.defaultUser = "nixos";
+  wsl.defaultUser = "dave";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   networking.hostName = "nixos-wsl";
 
   environment.systemPackages = with pkgs; [
-    git wget curl vim
+    git wget curl vim gh
+    nodejs
+    python3
   ];
+
+  programs.zsh.enable = true;
+  programs.neovim.enable = true;
+
+  users.defaultUserShell = pkgs.zsh;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
