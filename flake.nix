@@ -2,8 +2,13 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, nixos-wsl, ... }: {
+  outputs = { self, nixpkgs, nixos-wsl, home-manager, ... }: {
     nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [ 
@@ -15,6 +20,11 @@
       system = "x86_64-linux";
       modules = [ 
         ./nixos-notebook/configuration.nix
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.users.dave = import ./home.nix;
+        }
       ];
     };
   };
