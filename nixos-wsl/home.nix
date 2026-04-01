@@ -9,4 +9,6 @@
   };
 
   home.packages = [ pkgs.fastfetch ];
+
+  home.file."antigen.zsh".source = "${pkgs.antigen}/share/antigen/antigen.zsh";
 }
