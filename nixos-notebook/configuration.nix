@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, input, ... }:
 
 {
   imports =
@@ -82,6 +82,7 @@
     foot
     wofi
     hyprpaper
+    input.quickshell.packages.${pkgs.system}.default
   ];
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
