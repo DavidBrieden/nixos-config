@@ -68,10 +68,6 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
-  programs.hyprland.enable = true;
-  programs.firefox.enable = true;
-  programs.neovim.enable = true;
-
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -82,7 +78,16 @@
     foot
     wofi
     hyprpaper
+    nodejs
+    python3
   ];
+
+  programs.hyprland.enable = true;
+  programs.firefox.enable = true;
+  programs.neovim.enable = true;
+  programs.zsh.enable = true;
+
+  users.defaultUserShell = pkgs.zsh;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
