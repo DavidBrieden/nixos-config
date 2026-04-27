@@ -2,7 +2,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,32 +11,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, quickshell, ... }: {
-    nixosConfigurations.nixos-wsl = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [ 
-        nixos-wsl.nixosModules.default
-        ./nixos-wsl/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.users.dave = import ./nixos-wsl/home.nix;
-        }
-      ];
-    };
 
-    nixosConfigurations.nixos-notebook = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      specialArgs = { inherit inputs; };
-      modules = [ 
-        ./nixos-notebook/configuration.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.users.dave = import ./nixos-notebook/home.nix;
-        }
-      ];
-    };
+  outputs = inputs@{ self, nixpkgs, ... }: {
+    nixosConfigurations = import ./hosts inputs;
   };
 }
