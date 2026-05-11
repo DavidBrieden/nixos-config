@@ -23,6 +23,7 @@
 
   programs.zsh.enable = true;
   programs.neovim.enable = true;
+  programs.nix-ld.enable = true; # this is necessary for nvim and running eg. lsps in there
 
   users.defaultUserShell = pkgs.zsh;
 
