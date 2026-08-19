@@ -16,7 +16,7 @@
   networking.hostName = "nixos-wsl";
 
   environment.systemPackages = with pkgs; [
-    git wget curl vim gh fzf
+    git wget curl vim gh fzf gnumake
     nodejs
     python3
   ];
