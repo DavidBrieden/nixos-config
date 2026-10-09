@@ -6,6 +6,11 @@
 
   environment.systemPackages = with pkgs; [
     git wget curl vim gnumake gh
+    htop ripgrep fzf
+    zoxide
+    gcc
+    tmux
+    jq
   ];
 
   programs.zsh.enable = true;
