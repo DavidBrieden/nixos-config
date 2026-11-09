@@ -4,7 +4,7 @@
 
   home = {
     username = "dave";
-    homeDirectory = "/home/dave";
+    homeDirectory = lib.mkForce "/home/dave";
     stateVersion = "24.05";
   };
 
