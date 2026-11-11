@@ -74,6 +74,8 @@
     hyprpaper
     hyprcursor
 
+    nautilus
+
     opencode
   ];
 
