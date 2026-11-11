@@ -82,6 +82,7 @@
     opencode
 
     prismlauncher
+    discord
   ];
 
   programs.hyprland.enable = true;
