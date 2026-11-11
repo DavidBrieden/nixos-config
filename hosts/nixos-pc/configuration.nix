@@ -34,6 +34,9 @@
     nerd-fonts.hack
   ];
 
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
 
@@ -77,6 +80,8 @@
     nautilus
 
     opencode
+
+    prismlauncher
   ];
 
   programs.hyprland.enable = true;
