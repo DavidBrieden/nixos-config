@@ -61,15 +61,20 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     foot
     wofi
+    noctalia
+    inputs.quickshell.packages.${pkgs.system}.default
+
     hyprpaper
     hyprcursor
+
     opencode
-    inputs.quickshell.packages.${pkgs.system}.default
   ];
 
   programs.hyprland.enable = true;
