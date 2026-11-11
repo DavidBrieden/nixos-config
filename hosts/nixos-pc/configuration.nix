@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-notebook"; # Define your hostname.
+  networking.hostName = "nixos-pc"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -24,12 +24,15 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
+   services.xserver = {
+     layout = "de";
+     xkbVariant = ""; # Leave empty for standard QWERTZ
+   };
+   console.keyMap = "de";
+
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+  ];
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
