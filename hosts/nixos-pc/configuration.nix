@@ -67,6 +67,7 @@
     foot
     wofi
     hyprpaper
+    hyprcursor
     opencode
     inputs.quickshell.packages.${pkgs.system}.default
   ];

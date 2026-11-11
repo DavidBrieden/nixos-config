@@ -9,7 +9,16 @@
   };
 
   home.packages = [ pkgs.fastfetch ];
-  
+  home.pointerCursor.enable = true;
+  home.pointerCursor = {
+    name = "nordzy-cursor-theme";
+    package = pkgs.nordzy-cursor-theme;
+    size = 24;
+    gtk.enable = true;
+    hyprcursor = {
+    size = 24;
+  };
+  }; 
   # Clone my private repo to home
   home.activation.cloneDotFiles = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
     if [ ! -d "${config.home.homeDirectory}/dotfiles" ]; then
