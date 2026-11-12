@@ -89,6 +89,8 @@
 
     python3
     nodejs
+
+    whatsapp-electron
   ];
 
   programs.hyprland.enable = true;
@@ -100,6 +102,12 @@
     # Other general flags if available can be set here.
   };
   programs.gamemode.enable = true;
+
+
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.nvidia.open = true;
+  hardware.nvidia.modesetting.enable = true;
 
   # Do NOT change this value unless you have manually inspected all the changes it would make to your configuration,
   # and migrated your data accordingly.
