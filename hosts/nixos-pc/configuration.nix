@@ -85,6 +85,7 @@
     discord
 
     spotify
+    telegram-desktop
   ];
 
   programs.hyprland.enable = true;
