@@ -86,6 +86,9 @@
 
     spotify
     telegram-desktop
+
+    python3
+    nodejs
   ];
 
   programs.hyprland.enable = true;
