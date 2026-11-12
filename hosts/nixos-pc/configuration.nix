@@ -83,6 +83,8 @@
 
     prismlauncher
     discord
+
+    spotify
   ];
 
   programs.hyprland.enable = true;
