@@ -78,6 +78,7 @@
     hyprcursor
 
     nautilus
+    nnn
 
     opencode
 
