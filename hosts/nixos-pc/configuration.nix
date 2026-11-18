@@ -73,6 +73,12 @@
     wofi
     noctalia
     inputs.quickshell.packages.${pkgs.system}.default
+    wl-clipboard
+
+    grim
+    feh
+    swappy
+    slurp
 
     hyprpaper
     hyprcursor
@@ -94,7 +100,9 @@
     whatsapp-electron
   ];
 
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
   programs.firefox.enable = true;
   programs.steam = {
     enable = true; # Master switch, already covered in installation
